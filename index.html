@@ -39,7 +39,12 @@
     };
 
     PianoKey.prototype.drawKey = function(){
-        $("<div></div>").appendTo("#piano").addClass(this.key_class).attr("id", this.key_id);
+        var key = Document.creteElement("div");
+        key.setAttribute("class", this.key_class);
+        key.setAttribute("id", this.key_id);
+        piano = Document.getElementById("piano");
+        piano.appendChild(key);
+        //$("<div></div>").appendTo("#piano").addClass(this.key_class).attr("id", this.key_id);
     };
 
     var high_c = new PianoKey(523.251, "high-c", "key white-key", "sine");
