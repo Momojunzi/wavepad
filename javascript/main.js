@@ -2,8 +2,13 @@
  * Created by Mark on 8/14/2016.
  */
 var piano = function(){
-    var audioCtx = new AudioContext();
-
+    if('webkitAudioContext' in window) {
+        var audioCtx = new webkitAudioContext();
+    }
+    else{
+        var audioCtx = new AudioContext();
+    }
+    
     var PianoKey = function(hz, key_id, key_class, wave_type){
         this.hz = hz;
         this.key_id = key_id;
