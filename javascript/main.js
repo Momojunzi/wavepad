@@ -7,12 +7,16 @@ var piano = function(){
         audioCtx = new AudioContext();
     }
     else{
-        audioCtx = new webkitAudioContext();
+        audioCtx = new window.AudioContext();
     }
     var iosStart = function(){
         var button = document.getElementById("iosstart");
         button.addEventListener("touchend", function(){
-            alert("touchend");
+            var falseaudio = audioCtx.createOscillator();
+            falseaudio.type = "sine";
+            falseaudio.frequency.value = 100000;
+            falseaudio.start() : falseaudio.noteOn();
+            falseaudio.stop() : falseaudio.noteOff();
         },false);
     };
     iosStart();
