@@ -15,8 +15,8 @@ var piano = function(){
             var falseaudio = audioCtx.createOscillator();
             falseaudio.type = "sine";
             falseaudio.frequency.value = 100000;
-            falseaudio.noteOn();
-            falseaudio.noteOff();
+            falseaudio.start();
+            falseaudio.stop();
         },false);
     };
     iosStart();
