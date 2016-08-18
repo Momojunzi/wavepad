@@ -27,6 +27,7 @@ var piano = function(){
         oscillator.connect(gainNode);
         gainNode.connect(audioCtx.destination);
         oscillator.start();
+        oscillator.noteOn();
 
         var key = document.getElementById(this.key_id);
         key.addEventListener("mouseenter", function(){
