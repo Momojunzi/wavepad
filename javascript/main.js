@@ -7,7 +7,7 @@ var piano = function(){
         audioCtx = new AudioContext();
     }
     else{
-        audioCtx = new window.AudioContext();
+        audioCtx = new webkitAudioContext();
     }
     var iosStart = function(){
         var button = document.getElementById("iosstart");
