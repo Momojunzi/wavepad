@@ -26,7 +26,12 @@ var piano = function(){
         oscillator.frequency.value = this.hz;
         oscillator.connect(gainNode);
         gainNode.connect(audioCtx.destination);
-        oscillator.start();
+         if(oscillator.start){
+            oscillator.start();
+        }
+        else if(oscillator.noteOn){
+            oscillator.noteOn();
+        }
         
 
         var key = document.getElementById(this.key_id);
