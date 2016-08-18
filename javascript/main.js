@@ -47,7 +47,7 @@ var piano = function(){
         });
         key.addEventListener("touchend", function(evt){
             evt.preventDefault();
-            gainNode.gain.value = 0.10;
+            gainNode.gain.value = 0.00;
         });
     };
 
