@@ -9,7 +9,13 @@ var piano = function(){
     else{
         audioCtx = new webkitAudioContext();
     }
-
+    var iosStart = function(){
+        var button = document.getElementById("iosstart");
+        button.addEventListener("touchend", function(){
+            alert("touchend");
+        });
+    };
+    iosStart();
 
     var PianoKey = function(hz, key_id, key_class, wave_type){
         this.hz = hz;
