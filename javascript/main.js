@@ -13,7 +13,7 @@ var piano = function(){
         var button = document.getElementById("iosstart");
         button.addEventListener("touchend", function(){
             alert("touchend");
-        });
+        },false);
     };
     iosStart();
 
