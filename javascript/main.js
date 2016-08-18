@@ -2,7 +2,14 @@
  * Created by Mark on 8/14/2016.
  */
 var piano = function(){
-    var audioCtx = new AudioContext();
+    var audioCtx;
+    if('audioContext' in window) {
+        audioCtx = new AudioContext();
+    }
+    else{
+        audioCtx = new webkitAudioContext();
+    }
+
 
     var PianoKey = function(hz, key_id, key_class, wave_type){
         this.hz = hz;
@@ -20,11 +27,20 @@ var piano = function(){
         oscillator.connect(gainNode);
         gainNode.connect(audioCtx.destination);
         oscillator.start();
+
         var key = document.getElementById(this.key_id);
         key.addEventListener("mouseenter", function(){
             gainNode.gain.value = 0.10;
         });
+        key.addEventListener("touchstart", function(evt){
+            evt.preventDefault();
+            gainNode.gain.value = 0.10;
+        });
         key.addEventListener("mouseleave", function(){
+            gainNode.gain.value = 0.0;
+        });
+        key.addEventListener("touchend", function(evt){
+            evt.preventDefault();
             gainNode.gain.value = 0.0;
         });
     };
