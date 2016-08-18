@@ -16,7 +16,7 @@ var piano = function(){
             falseaudio.type = "sine";
             falseaudio.frequency.value = 100000;
             falseaudio.start();
-            falseaudio.stop();
+            
         },false);
     };
     iosStart();
