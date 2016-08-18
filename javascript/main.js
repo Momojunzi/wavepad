@@ -44,8 +44,9 @@ var piano = function(){
         key.addEventListener("mouseenter", function(){
             gainNode.gain.value = 0.10;
         });
-        key.addEventListener("touchstart", function(evt){
+        key.addEventListener("mousedown", function(evt){
             evt.preventDefault();
+            oscillator.noteOn();
             gainNode.gain.value = 0.10;
         });
         key.addEventListener("mouseleave", function(){
