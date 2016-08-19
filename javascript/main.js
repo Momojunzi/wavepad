@@ -2,25 +2,21 @@
  * Created by Mark on 8/14/2016.
  */
 var piano = function(){
-    var audioCtx;
-    if('audioContext' in window) {
-        audioCtx = new AudioContext();
-    }
-    else{
-        audioCtx = new webkitAudioContext();
-    }
-    var iosStart = function(){
-        var button = document.getElementById("iosstart");
-        button.addEventListener("touchend", function(){
-            var falseaudio = audioCtx.createOscillator();
-            falseaudio.type = "sine";
-            falseaudio.frequency.value = 100000;
-            falseaudio.noteOn();
-            falseaudio.noteOff();
-            
-        },false);
-    };
-    iosStart();
+
+    var app = document.getElementById("startsound");
+    app.addEventListener("click", function(){
+            window.AudioContext = window.AudioContext || window.webkitAudioContext;
+            var audioCtx = new window.AudioContext;
+            var oscillator = audioCtx.createOscillator();
+            oscillator.frequency.value = 400;
+            oscillator.connect(audioCtx.destination);
+            oscillator.start(0);
+            oscillator.stop(0.5);
+            console.log(audioCtx);
+    });
+
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    var audioCtx = new window.AudioContext;
 
     var PianoKey = function(hz, key_id, key_class, wave_type){
         this.hz = hz;
@@ -37,21 +33,20 @@ var piano = function(){
         oscillator.frequency.value = this.hz;
         oscillator.connect(gainNode);
         gainNode.connect(audioCtx.destination);
-         if(oscillator.start){
+        if(oscillator.start){
             oscillator.start();
         }
         else if(oscillator.noteOn){
             oscillator.noteOn();
         }
-        
+
 
         var key = document.getElementById(this.key_id);
         key.addEventListener("mouseenter", function(){
             gainNode.gain.value = 0.10;
         });
-        key.addEventListener("mousedown", function(evt){
+        key.addEventListener("touchstart", function(evt){
             evt.preventDefault();
-            oscillator.noteOn();
             gainNode.gain.value = 0.10;
         });
         key.addEventListener("mouseleave", function(){
@@ -59,7 +54,7 @@ var piano = function(){
         });
         key.addEventListener("touchend", function(evt){
             evt.preventDefault();
-            gainNode.gain.value = 0.00;
+            gainNode.gain.value = 0.0;
         });
     };
 
@@ -104,6 +99,8 @@ var piano = function(){
     low_a_sharp.createSound();low_b.createSound();middle_c.createSound();high_c_sharp.createSound();high_d.createSound();
     low_f.createSound();low_f_sharp.createSound();low_g.createSound();low_g_sharp.createSound();low_a.createSound();
     low_c.createSound();low_c_sharp.createSound();low_d.createSound();low_d_sharp.createSound();low_e.createSound();
+
+
 };
 
 piano();
