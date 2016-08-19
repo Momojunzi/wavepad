@@ -3,20 +3,13 @@
  */
 var piano = function(){
 
-    var app = document.getElementById("startsound");
-    app.addEventListener("click", function(){
-            window.AudioContext = window.AudioContext || window.webkitAudioContext;
-            var audioCtx = new window.AudioContext;
-            var oscillator = audioCtx.createOscillator();
-            oscillator.frequency.value = 400;
-            oscillator.connect(audioCtx.destination);
-            oscillator.start(0);
-            oscillator.stop(0.5);
-            console.log(audioCtx);
-    });
-
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
     var audioCtx = new window.AudioContext;
+    var oscillator = audioCtx.createOscillator();
+    oscillator.frequency.value = 400;
+    oscillator.connect(audioCtx.destination);
+    oscillator.start(0);
+    oscillator.stop(0.5);
 
     var PianoKey = function(hz, key_id, key_class, wave_type){
         this.hz = hz;
