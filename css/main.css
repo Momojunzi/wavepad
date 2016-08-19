@@ -33,11 +33,13 @@
     background-color: black;
 }
 
+#starttext {
+   padding: 5%;
+}
 #startsound {
     width: 95vw;
-    height: 2vh;
+    height: 10vh;
     text-align: center;
-    padding: 5%;
     background-color: dimgrey;
     margin: auto;
 }
