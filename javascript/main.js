@@ -9,7 +9,10 @@ var piano = function(){
     oscillator.frequency.value = 400;
     oscillator.connect(audioCtx.destination);
     oscillator.start(0);
-    oscillator.stop(0.5);
+    oscillator.stop(0);
+    var startbutton = document.getElementById("startsound");
+    startbutton.style.display = "none";
+
 
     var PianoKey = function(hz, key_id, key_class, wave_type){
         this.hz = hz;
