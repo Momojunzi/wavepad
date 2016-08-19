@@ -7,7 +7,7 @@
 #piano {
     width: 95vw;
     height:90vh;
-    margin:3.5% auto  ;
+    margin:auto  ;
     border:solid black 1px;
     display: flex;
     flex-flow: row wrap;
@@ -33,8 +33,13 @@
     background-color: black;
 }
 
-
-#iosstart{
-    width: 10vw;
+#startsound {
+    width: 95vw;
+    height: 2vh;
+    text-align: center;
+    padding: 5%;
+    background-color: dimgrey;
+    margin: auto;
 }
+
 
