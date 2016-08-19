@@ -96,4 +96,3 @@ var piano = function(){
 
 };
 
-piano();
