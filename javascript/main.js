@@ -2,7 +2,8 @@
  * Created by Mark on 8/14/2016.
  */
 var piano = function(){
-
+    var pianoBody = document.getElementById("piano");
+    pianoBody.style.display = "flex";
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
     var audioCtx = new window.AudioContext;
     var oscillator = audioCtx.createOscillator();
@@ -98,4 +99,3 @@ var piano = function(){
 
 
 };
-

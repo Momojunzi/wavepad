@@ -4,12 +4,18 @@
     padding: 0;
 }
 
+html, body {
+   height: 100%;
+   background: navy;
+}
+
 #piano {
     width: 95vw;
     height:90vh;
-    margin:auto  ;
+    margin:5vh auto 0 auto;
     border:solid black 1px;
-    display: flex;
+    display:none;
+    /*display: flex;*/
     flex-flow: row wrap;
     background-color: red;
     padding:2.5%;
@@ -34,14 +40,14 @@
 }
 
 #starttext {
-   padding: 5%;
+   padding-top: 25%;
+   color: ivory;
 }
 #startsound {
-    width: 95vw;
+
+    width: 25vw;
     height: 10vh;
     text-align: center;
     background-color: dimgrey;
-    margin: auto;
+    margin: 45vh auto 0 auto;
 }
-
-
